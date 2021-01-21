@@ -13,6 +13,7 @@ NIC | HBA | Description
 [ser-dri](SER-DRI.md) | [ft245r](FT245R.md) | Serial over FT245R USB module, DRI protocol
 [ser-dri](SER-DRI.md) | [ins8250](INS8250.md) | DRI serial protocol over INS8250-like UART
 [ser-dri](SER-DRI.md) | [kaypro](KAYPRO.md) | DRI serial protocol on Kaypro Z80-SIO UART
+[ser-dri](SER-DRI.md) | [bic](A5105BIC.md) | DRI serial protocol on A5105(BIC) Z80-SIO UART
 [vcpnet](VCPNET.md) | null | Virtual CP/NET pseudo device
 
 For the Heathkit H8/H89, the board is the H8xSPI with the
@@ -52,6 +53,8 @@ Prebuilt packages for other architectures are TBD.
 
 ## How to [build](BUILD.md) your own.
 
+## How to [build cpnet Linux/Unix Server](BUILDNIX.md).
+
 ## How to [develop](DEVEL.md) a new platform.
 
 ### [Running CP/NET](RUN-RC2014.md) on RC2014.
@@ -67,7 +70,7 @@ Install and build as above.  make NIC=serial HBA=rc-siob
 
 Your next test is to configure the B port as follows. b:mode com1: 57600,n,8,1
 
-Then set up the ~/cpnet-z80/contrib/CpnetSerialServer config file.
+Then set up the ~/cpnet-z80/contrib/javaserver/CpnetSerialServer config file.
 ```
 cpnet_tty=/dev/ttyUSB2 57600
 cpnet_proto=BINARY
@@ -90,3 +93,7 @@ From here you can copy/run/what ever the files on your pseudo drives.  You can a
 copy/install from the pseudo drive.  In addition any file you copy to the pseudo drive
 on your server system will be accessable instantly on your CP/M system.
 
+## Alternative CP/NET server on Linux/Unix hosts
+
+Alternatively you can use the unix-server from contrib/unix-server-src, this server was 
+written by [hperaza](https://github.com/hperaza/cpnet-server).

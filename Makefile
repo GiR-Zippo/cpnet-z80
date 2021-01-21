@@ -4,8 +4,8 @@
 
 # Some default values.
 # Use NIC=xxx HBA=yyy on commandline to override.
-HBA = h8xspi
-NIC = w5500
+HBA = bic
+NIC = ser-dri
 
 # Known NICs:
 #	w5500		WizNET W5500 via SPI, various modules.
@@ -29,7 +29,7 @@ NIC = w5500
 # customize for build host platform
 CRLFP = unix2dos
 CRLF2 = unix2dos -n
-VCPM = vcpm
+VCPM = ./tools/vcpm
 
 # Output/build directory.
 # Override on commandline using BUILD=/some/path.

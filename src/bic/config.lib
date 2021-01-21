@@ -1,0 +1,18 @@
+; Z80-SIO UART and WD1943 BAUD generator.
+;
+SERPORT	equ	069h	; "serial data" port on Kaypro
+CMDPORT	equ	SERPORT+2
+BAUDA	equ	000h	; For Serial Data
+BAUDB	equ	008h	; For Serial Printer
+BAUDPRT	equ	BAUDA	; Use Serial Data Baud
+
+; TODO: use hardware handshake?
+SERRXR	equ	00000001b	; RR0: Rx data available
+SERTXR	equ	00000100b	; RR0: Tx holding reg empty
+
+; Port settings
+SERBAUD	equ	00eh	    ; 9600 baud 
+                        ; 19200 baud is 00fh... ?
+SIOWR3	equ	11000001b	; Rx: 8 bits, enable
+SIOWR4	equ	01000100b	; 16x, no parity, 1 stop
+SIOWR5	equ	11101010b	; Tx: DTR, RTS, 8 bits, enable
